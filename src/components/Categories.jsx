@@ -1,16 +1,12 @@
 import { useState } from "react";
 
-const Categories = () => {
+const Categories = ({ onSortClick, categories }) => {
   let [activeIndex, setActiveIndex] = useState(0);
 
-  const categories = [
-    "Все",
-    "Мясные",
-    "Вегетарианская",
-    "Гриль",
-    "Острые",
-    "Закрытые",
-  ];
+  const onCategoryClick = (i) => {
+    setActiveIndex(i);
+    onSortClick(i);
+  };
 
   return (
     <div className="categories">
@@ -19,7 +15,7 @@ const Categories = () => {
           return (
             <li
               key={idx}
-              onClick={() => setActiveIndex((activeIndex = idx))}
+              onClick={() => onCategoryClick(idx)}
               className={activeIndex === idx ? "active" : ""}
             >
               {item}
