@@ -1,12 +1,20 @@
 import { useState } from "react";
 
-const Categories = ({ onSortClick, categories }) => {
+const Categories = () => {
   let [activeIndex, setActiveIndex] = useState(0);
 
   const onCategoryClick = (i) => {
     setActiveIndex(i);
-    onSortClick(i);
   };
+
+  const categories = [
+    "Все",
+    "Мясные",
+    "Вегетарианская",
+    "Гриль",
+    "Острые",
+    "Закрытые",
+  ];
 
   return (
     <div className="categories">
